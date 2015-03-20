@@ -1,0 +1,1 @@
+web: python WTFTU1.py
