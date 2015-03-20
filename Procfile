@@ -1,1 +1,1 @@
-web: python WTFTU1.py
+web:  gunicorn --log-file - -b 0.0.0.0:$PORT WTFTU1:app
