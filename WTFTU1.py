@@ -13,12 +13,13 @@ def start():
     elif DoW == 6:
         return "Error: 2"  # uniSat
     else:
-        while True:
+        while time24 < 2400:
             if time24 not in uniWeekday:
                 time24 += 1
             else:
                 response = (str(time24)[0:2] + ":" + str(time24)[2:4])
                 return response
+        return "No Bus Time"
 
 
 uniWeekday = [1708, 1738, 1808, 1838, 1914, 2014, 2114, 2239]
