@@ -19,9 +19,9 @@ def start():
             timeTemp += 1
         else:
             responseLeam = (str(timeTemp)[0:2] + ":" + str(timeTemp)[2:4])
-        response = "To Leam: " + responseUni + "xTo Uni:" + responseLeam
+        response = "2L" + responseUni + "2U" + responseLeam
         return str(response)
-    return "No Bus Today"
+    return "0"
 
 
 uniWeekday = [0754, 0x0824, 0x0908, 0x0938, 1008, 1038, 1108, 1138, 1208,
