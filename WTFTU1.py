@@ -55,10 +55,10 @@ leamSun = [801, 901, 921, 941, 1001, 1021, 1041, 1101, 1121, 1141, 1201,
 
 timetableUni = [uniSun]
 timetableUni.extend([uniWeekday] * 5)
-timetableUni.extend(uniSat)
+timetableUni.extend([uniSat])
 timetableLeam = [leamSun]
 timetableLeam.extend([leamWeekday] * 5)
-timetableLeam.extend(leamSat)
+timetableLeam.extend([leamSat])
 
 
 if __name__ == '__main__':
