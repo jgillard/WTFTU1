@@ -1,6 +1,11 @@
 from flask import Flask
 import datetime
+import sys
+import logging
 app = Flask(__name__)
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 
 def findTime(timetable):

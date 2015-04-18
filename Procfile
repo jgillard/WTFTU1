@@ -1,1 +1,1 @@
-web:  gunicorn --log-file - -b 0.0.0.0:$PORT WTFTU1:app
+web: newrelic-admin run-program gunicorn --log-file - -b 0.0.0.0:$PORT WTFTU1:app
