@@ -17,10 +17,14 @@ def findTime(timetable):
     for timeTemp in range(time, 2400):
         if timeTemp > 400:
             if timeTemp in timetable[day]:
-                return formatTime(timeTemp)
+                nextBus = timetable[day][timetable[day].index(timeTemp)]
+                nextnextBus = timetable[day][timetable[day].index(timeTemp)+1]
+                return [formatTime(nextBus), formatTime(nextnextBus)]
         else:
             if timeTemp in timetable[day-1]:
-                return formatTime(timeTemp)
+                nextBus = timetable[day][timetable[day].index(timeTemp)]
+                nextnextBus = timetable[day][timetable[day].index(timeTemp)+1]
+                return [formatTime(nextBus), formatTime(nextnextBus)]
     return "No buses you moron"
 
 
@@ -35,8 +39,9 @@ def start():
     day = datetime.datetime.now().strftime("%w")
     toLeam = findTime(timetableUni)
     toUni = findTime(timetableLeam)
-    message = {"info": {"toLeam": toLeam, "toUni": toUni}, \
-           "debug": {"time": t, "day": day}}
+    message = {"info": {"toLeam": toLeam[0], "toUni": toUni[0],
+                        "toLeam2": toLeam[1], "toUni2": toUni[1]},
+               "debug": {"time": t, "day": day}}
     return json.dumps(message)
 
 
