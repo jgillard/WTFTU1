@@ -28,9 +28,15 @@
                 "file": "fonts/UbuntuMono-Regular.ttf",
                 "name": "MONO_FONT_14",
                 "type": "font"
+            },
+            {
+                "file": "images/splash.png",
+                "name": "IMAGES_SPLASH_PNG",
+                "type": "png"
             }
         ]
     },
+    "sdkVersion": "3",
     "shortName": "WTFTU1",
     "uuid": "35a8e2d8-3416-41b7-a8f3-a44d23b8a194",
     "versionCode": 1,
