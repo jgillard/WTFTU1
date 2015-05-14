@@ -17,13 +17,21 @@ def findTime(timetable):
     for timeTemp in range(time, 2400):
         if timeTemp > 400:
             if timeTemp in timetable[day]:
-                nextBus = timetable[day][timetable[day].index(timeTemp)]
-                nextnextBus = timetable[day][timetable[day].index(timeTemp)+1]
+                index = timetable[day].index(timeTemp)
+                nextBus = timetable[day][index]
+                if nextBus != timetable[day][-1]:
+                    nextnextBus = timetable[day][index+1]
+                else:
+                    nextnextBus = 9999
                 return [formatTime(nextBus), formatTime(nextnextBus)]
         else:
             if timeTemp in timetable[day-1]:
-                nextBus = timetable[day][timetable[day].index(timeTemp)]
-                nextnextBus = timetable[day][timetable[day].index(timeTemp)+1]
+                index = timetable[day].index(timeTemp)
+                nextBus = timetable[day][index]
+                if timetable[day][index] != timetable[day][-1]:
+                    nextnextBus = timetable[day][index+1]
+                else:
+                    nextnextBus = 9999
                 return [formatTime(nextBus), formatTime(nextnextBus)]
     return "No buses you moron"
 
