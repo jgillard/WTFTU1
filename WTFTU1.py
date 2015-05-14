@@ -1,5 +1,6 @@
 from flask import Flask
 import datetime
+import json
 import sys
 import logging
 app = Flask(__name__)
@@ -30,8 +31,14 @@ def formatTime(time):
 
 @app.route('/')
 def start():
-    t = datetime.datetime.now().strftime("%w@%H:%M")
-    return "2L%s\n2U%sdebug%s" % (findTime(timetableUni), findTime(timetableLeam), t)
+    t = datetime.datetime.now().strftime("%H:%M")
+    day = datetime.datetime.now().strftime("%w")
+    toLeam = findTime(timetableUni)
+    toUni = findTime(timetableLeam)
+    message = {"info": {"toLeam": toLeam, "toUni": toUni}, \
+           "debug": {"time": t, "day": day}}
+    return json.dumps(message)
+
 
 # NO MIDDLE TIMETABLE BUSES ADDED
 # DAY SPECIFIC SUPER LATE BUSES
